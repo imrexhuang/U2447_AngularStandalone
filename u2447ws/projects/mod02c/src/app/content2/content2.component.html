@@ -31,7 +31,20 @@
 </div>
 <ul>
     @for (item of member; track member){
-<li> {{item.name}} - {{item.age}} - {{item.country}}   </li>
+         @if ($first) {
+        <li style="background-color: bisque;">{{$index+1}}: {{item.name}} - {{item.age}} - {{item.country}} </li>
+        }
+        @else if ($odd) {
+        <li style="background-color:burlywood; ">{{$index+1}}: {{item.name}} - {{item.age}} - {{item.country}} </li>
+        }@else {
+        <li>{{$index+1}}: {{item.name}} - {{item.age}} - {{item.country}} </li>
+        }
+        @if ($last) {
+            <li style="background-color: gray; color:white">[總共筆數: {{$count}}]</li>
+        }
 
+    }
+    @empty {
+        <li>沒有資料</li>
     }
 </ul>
