@@ -4,12 +4,21 @@ import { Component } from '@angular/core';
   selector: 'uuu-home',
   imports: [],
   template: `
-    <p>
+    <h2>
       home works!
-    </p>
+    </h2>
+    Hello {{user}}<br>
+    <div>
+     <input type="text" #txtName [value]="user">
+     <button (click)="onSend(txtName.value)" >Send</button>
+   </div>    
   `,
   styles: ``
 })
 export class HomeComponent {
-
+  time = new Date();
+  user = "Rex";
+  onSend(name: string){
+    this.user = name;
+  }
 }
