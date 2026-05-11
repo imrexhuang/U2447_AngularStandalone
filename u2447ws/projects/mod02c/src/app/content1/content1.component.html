@@ -1,9 +1,21 @@
 <h1>Ex1.&#64;if</h1>
-<h1>今天天氣是: {{temp}} 度，感覺是:
-    @if (temp>28)
+<h1>今天天氣是: {{temp}} 度，
+    @let tempF = temp *9/5 +32;
+    華氏: {{tempF}} 度，感覺是:
+    <!-- @if (temp>28)
     {
         熱        
     } @else {
         不知道
+    } -->
+
+
+    @if (temp>28) {
+        熱
+    } @else if (temp>20) {
+        舒適
+    } @else {
+        冷
     }
+
 </h1>

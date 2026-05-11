@@ -4,16 +4,19 @@ import { Content2Component } from "../content2/content2.component";
 
 @Component({
   selector: 'uuu-home',
-  imports: [],
+  imports: [Content1Component, Content2Component],
   template: `
     <h2>
       home works!
     </h2>
-    Hello {{user}}<br>
-    <div>
-     <input type="text" #txtName [value]="user">
-     <button (click)="onSend2(txtName.value)" >Send</button>
-   </div>    
+    <uuu-content2></uuu-content2> <hr>
+<uuu-content1 ></uuu-content1> <hr>
+
+  Hello {{user}}, 現在時間: {{time}}
+  <div>
+  <input type="text" #txtName [value]="user">
+  <button (click)="onSend2(txtName.value)" >Send</button>
+</div>
   `,
   styles: ``
 })
