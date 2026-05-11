@@ -22,11 +22,16 @@ export class Content2Component {
     {name:'Anna', country:'Japan', age: 29}      
   ]
   member = this.db;
-    
+
   country="UK";
 
   onchangeABC(value: string) {
     this.country = value;
+    if (value==="All"){
+      this.member= this.db;
+      return;
+    }
+    this.member = this.db.filter((m)=> m.country===value);    
   }
 
 
