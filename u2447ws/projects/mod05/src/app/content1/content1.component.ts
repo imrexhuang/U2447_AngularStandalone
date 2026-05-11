@@ -1,12 +1,14 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'uuu-content1',
-  standalone: true,
-  imports: [],
+  selector: 'app-content1',
+  imports: [NgClass],
   templateUrl: './content1.component.html',
   styles: ``
 })
 export class Content1Component {
-
+  myclass="subTitle dark";
+  isDark = true;
+  isTitle = false; 
 }

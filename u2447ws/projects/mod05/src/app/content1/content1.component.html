@@ -1,1 +1,41 @@
-<p>content1 works!</p>
+<style>
+    .title {
+        text-align: center;
+        font-size: 36px;
+        padding: 10px;
+        margin: 3px;
+    }
+
+    .subTitle {
+        text-align: center;
+        font-size: 24px;
+        padding: 10px;
+        margin: 3px;
+    }
+
+    .dark {
+        color: white;
+        text-shadow: 10px 10px black;
+        background: linear-gradient(to bottom right, red, blue);
+    }
+
+    .light {
+        color: green;
+        text-shadow: 2px 2px darkgreen;
+        background: linear-gradient(to bottom right, lightyellow, lightgreen);
+    }
+
+</style>
+
+<!-- ========class========== -->
+<div class="title dark">class demo1</div>
+<div class="subTitle light">class demo2</div>
+<div [class]="myclass">[class] demo3</div>
+<div [class]="isTitle ? 'title' :'subTitle' ">[class] demo4</div>
+<div [class.title]="isTitle" [class.light]="!isDark">[class] demo5</div>
+
+<!-- ========ngClass========== -->
+<div [ngClass]="{'dark': isDark, 
+    'light': !isDark, 
+    'title':isTitle, 
+    'subTitle': !isTitle}">[ngClass] demo1</div>
