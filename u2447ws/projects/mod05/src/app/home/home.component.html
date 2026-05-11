@@ -1,1 +1,14 @@
-<p>home works!</p>
+<p>Property & Attribute Binding!</p>
+<img [src]="imgUrl" [width]="width" />
+<img [src]="imgUrl" [attr.width]="width" />
+<svg [attr.width]="width" [attr.height]="width" 
+style="border: 1px solid" 
+viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+    <circle cx="100" cy="100" r="50" fill="red" />
+    <circle cx="100" cy="100" r="40" fill="blue" />
+    <circle cx="100" cy="100" r="30" fill="green" />
+</svg>
+<div>
+    <input type="text" [value]="width" #inpWidth />
+    <button (click)="setWidth(inpWidth.value)">Set Width</button>
+</div>
