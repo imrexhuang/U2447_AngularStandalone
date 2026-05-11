@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, NavComponent, FooterComponent],
   templateUrl: './app.component.html',
   styles: [],
 })
 export class AppComponent {
-  title = 'mod05';
+  title = '綁定';
 }
