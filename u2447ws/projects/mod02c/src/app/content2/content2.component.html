@@ -1,6 +1,18 @@
 <p>content2 works!</p>
+
+<select #selCountry (change)="onchangeABC(selCountry.value)">
+    <!-- <option>All</option>
+    <option >Canada</option>
+    <option >USA</option>
+    <option >Japan</option>
+    <option >UK</option>     -->
+    @for (c of countries ; track $index){
+        <option>{{c}}</option>
+    }
+</select> 
+
 <div>
-    @switch (coutry) {
+    @switch (country) {
         @case ("All") { 所有}
         @case ('USA') {美國}
         @case ('Japan') {

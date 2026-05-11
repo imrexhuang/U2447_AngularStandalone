@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class Content2Component {
-  coutry="UK";
+  countries = ['All', 'Canada', 'USA', 'UK', 'India', 'Japan'];
+  country="UK";
+
+  onchangeABC(value: string) {
+    this.country = value;
+  }
+
+
 }
