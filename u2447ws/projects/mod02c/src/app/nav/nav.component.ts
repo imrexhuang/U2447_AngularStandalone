@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'uuu-nav',
-  imports: [],
+  imports: [RouterLinkActive, RouterLink],
   template: `
     <nav>
-      <ul><a href="home">Home</a> </ul>
-      <ul><a href="about">About</a> </ul>
+      <ul><a routerLink="home" routerLinkActive="active">Home</a> </ul>
+      <ul><a routerLink="about" routerLinkActive="active">About</a> </ul>
     </nav>
   `,
   styles: `
-    nav {
-      background-color: #333;
-      color: white;
+    nav {    
       padding: 10px;
     }
     nav ul {
@@ -21,9 +21,15 @@ import { Component } from '@angular/core';
       padding: 0;
     }
     nav ul a {
-      color: white; 
+      color: white;
       text-decoration: none;
       padding: 5px 10px;
+    }
+    .active {
+      background-color: darkgray;
+        color: white;
+        font-weight: bold;
+
     }
   `
 })
