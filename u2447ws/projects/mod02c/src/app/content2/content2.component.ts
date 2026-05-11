@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class Content2Component {
-
+  coutry="UK";
 }
