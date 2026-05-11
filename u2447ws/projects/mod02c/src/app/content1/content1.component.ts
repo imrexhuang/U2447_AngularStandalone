@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class Content1Component {
-
+  temp= Math.floor(Math.random() *40);
 }
