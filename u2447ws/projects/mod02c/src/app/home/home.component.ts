@@ -12,7 +12,7 @@ import { Content2Component } from "../content2/content2.component";
     Hello {{user}}<br>
     <div>
      <input type="text" #txtName [value]="user">
-     <button (click)="onSend(txtName.value)" >Send</button>
+     <button (click)="onSend2(txtName.value)" >Send</button>
    </div>    
   `,
   styles: ``
@@ -20,7 +20,7 @@ import { Content2Component } from "../content2/content2.component";
 export class HomeComponent {
   time = new Date();
   user = "Rex";
-  onSend(name: string){
+  onSend2(name: string){
     this.user = name;
   }
 }
