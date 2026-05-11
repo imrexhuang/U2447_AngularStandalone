@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [NavComponent, HomeComponent, FooterComponent],
+  imports: [RouterOutlet,  NavComponent, HomeComponent, FooterComponent],
   template: `
     <div class="container">
       <header>
@@ -14,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
         <uuu-nav></uuu-nav>
       </header>
       <main>
-       <uuu-home></uuu-home>
+       <router-outlet />
       </main>
       <footer></footer>
     </div>
