@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
+import { routes } from '../app.routes';
 
 @Component({
   selector: 'uuu-nav',
   imports: [RouterLinkActive, RouterLink],
   template: `
     <nav>
-      <ul><a routerLink="home" routerLinkActive="active">Home</a> </ul>
-      <ul><a routerLink="about" routerLinkActive="active">About</a> </ul>
+        <ul>
+      @for ( route of routeList; track route) {
+        @if (route.title) {
+        <li>
+            <a [routerLink]="route.path" routerLinkActive="active">{{ route.title }}</a>
+        </li>
+        }
+      }
+         </ul>
     </nav>
   `,
   styles: `
@@ -34,5 +41,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   `
 })
 export class NavComponent {
-
+  routeList = routes
 }
