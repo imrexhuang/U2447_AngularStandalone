@@ -5,3 +5,10 @@
    <tagButton tag="CSS" canDelete="true" (delete)="ondelete($event)"></tagButton>
 
 </div>
+
+<hr />
+可以新增/刪除
+<tagList [(List)]="tags"></tagList>
+<hr />
+只能列表
+<tagList [List]="tags" [readOnly]="true"></tagList>
