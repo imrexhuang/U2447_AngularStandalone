@@ -27,6 +27,7 @@ export class TagButtonComponent {
   delete =output<string>();
 
   onDelete(){
-    this.delete.emit(this.tagName);
+    //this.delete.emit(this.tagName);
+    this.delete.emit( this.tagName() );//因為Signal要多加()
   }
 }
