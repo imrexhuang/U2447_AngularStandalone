@@ -22,6 +22,6 @@ export class TagButtonComponent {
   @Input ({transform:booleanAttribute}) canDelete: boolean=false;
   @Output() delete = new EventEmitter<string>();
   onDelete(){
-    this.delete.emit(this.tagName);
+    this.delete.emit(this.tagName); //emit:觸發事件
   }
 }
