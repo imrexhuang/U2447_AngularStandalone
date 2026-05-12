@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef } from '@angular/core';
+import { Component, ContentChild, ElementRef, ViewChild  } from '@angular/core';
 
 @Component({
   selector: 'app-demo-content1',
@@ -23,6 +23,7 @@ import { Component, ContentChild, ElementRef } from '@angular/core';
 
 export class DemoContent1Component {
   @ContentChild('antherTips') antherTips! :ElementRef<HTMLElement>;
+  @ViewChild('box') box!: ElementRef<HTMLElement> ;
   constructor(){
   console.log('constructor', this.antherTips);
   }
@@ -40,5 +41,11 @@ export class DemoContent1Component {
       this.antherTips.nativeElement.style.backgroundColor = '';
     });
 
+    
   }
+
+   ChangeColor() {
+    this.box.nativeElement.style.backgroundColor = 'lightblue';
+    this.box.nativeElement.style.color = 'blue';
+  } 
 }
