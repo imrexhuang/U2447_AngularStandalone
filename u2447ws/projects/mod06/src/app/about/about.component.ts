@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+import { InTheBoxDirective } from '../in-the-box.directive';
 
 
 
 @Component({
   selector: 'uuu-about',
   standalone: true,
-  imports: [],
+  imports: [InTheBoxDirective],
   template: `
-    <div #U2447>
+    <div #U2447 >
       <h1 #U2447H>U2447 Angular Standalone模式深度探索Part 1</h1>
-      <div #U24471 >
+      <div #U24471 InTheBox="3px double blue">
       有鑑於Angular v2到v16版使用Module模式學習途徑過於陡峭，也使許多新朋友在學習上為之卻步，好消息是經過v14之後開發者預覽的Standalone模式，已經在Angular v17之後成為預設專案類型，讓Angular學習上更加輕鬆，專案也較為輕盈有效率 ...。Angular 17是一個大躍進，它新增了&#64;for … 結構性語法、SSR、Signal ... ，在效能上、開發的便利性都有許多的增長。
       </div>
       <div #U24472>
@@ -18,7 +19,7 @@ import { Component } from '@angular/core';
     </div>
     <div>
     <div #U2448 >
-      <h1 #U2448H>U2448 Angular Standalone模式深度探索Part 2</h1>
+      <h1 #U2448H InTheBox>U2448 Angular Standalone模式深度探索Part 2</h1>
       <div #U24481>
       首先，課程中將探討Angular中的非同步機制，討論Observable和RxJS之間的關係，並比較Promise和async/await，以了解它們在Angular中的運作原理及應用場景。
       </div>
