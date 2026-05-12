@@ -4,7 +4,7 @@ import { TagListComponent } from '../tag-list/tag-list.component';
 
 @Component({
   selector: 'uuu-home', 
-  imports: [TagButtonComponent],
+  imports: [TagButtonComponent, TagListComponent],
   templateUrl: './home.component.html',
   styles: ``
 })
