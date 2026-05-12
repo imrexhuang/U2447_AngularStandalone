@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ContentChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-demo-content1',
@@ -22,5 +22,23 @@ import { Component } from '@angular/core';
 })
 
 export class DemoContent1Component {
+  @ContentChild('antherTips') antherTips! :ElementRef<HTMLElement>;
+  constructor(){
+  console.log('constructor', this.antherTips);
+  }
+  ngInit(){
+    console.log('ngInit', this.antherTips);
+  }
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit', this.antherTips);
+    this.antherTips.nativeElement.addEventListener('mousemove', () => {
+      this.antherTips.nativeElement.style.backgroundColor = 'yellow';
 
+    });
+
+    this.antherTips.nativeElement.addEventListener('mouseleave', () => {     
+      this.antherTips.nativeElement.style.backgroundColor = '';
+    });
+
+  }
 }
