@@ -1,1 +1,16 @@
-<p>lab07 works!</p>
+
+<div>UpperCase: {{ vString | uppercase }}</div>
+<div>LowerCase: {{ vString | lowercase }}</div>
+
+<div>Date: {{ vDate | date }}</div>
+<div>Date 'shortDate': {{ vDate | date: 'shortDate' }}</div>
+<div>Date 'yyyy-MM-dd': {{ vDate | date: 'yyyy-MM-dd' }}</div>
+
+<div>number: {{vNumber | number}}</div>
+<div>number: {{vNumber | number:'1.0-0'}}</div>
+<div>number: {{vNumber | number:'3.1-5'}}</div>
+<div>number: {{vNumber2 | number}}</div>
+<div>number: {{vNumber2 | number:'1.0-0'}}</div>
+<div>number: {{vNumber2 | number:'3.1-5'}}</div>
+<div>number: {{vNumber2 | number:'3.5-5'}}</div>
+<div>currency: {{vMoney | currency}}</div>
