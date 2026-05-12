@@ -1,5 +1,5 @@
 import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
-import { TagButtonComponent } from '../../../../mod06/src/app/tag-button/tag-button.component';
+import { TagButtonComponent } from './tag-button.component';
 
 
 @Component({
