@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content3',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './content3.component.html',
   styles: ``
 })
