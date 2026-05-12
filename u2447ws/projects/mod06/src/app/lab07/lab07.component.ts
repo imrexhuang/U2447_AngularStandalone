@@ -1,9 +1,10 @@
 import { CommonModule  } from '@angular/common';
 import { Component } from '@angular/core';
+import { Usd2ntdPipe } from '../usd2ntd.pipe';
 
 @Component({
   selector: 'app-lab07',
-  imports: [CommonModule],
+  imports: [CommonModule, Usd2ntdPipe],
   templateUrl: './lab07.component.html',
   styles: ``
 })
