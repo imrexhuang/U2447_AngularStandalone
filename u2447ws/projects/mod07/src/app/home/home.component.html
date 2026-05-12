@@ -1,10 +1,10 @@
 <div #divQty>
     數量:{{qty()}} 
-   <!-- <button (click)="addQty()">+</button> <button (click)="minusQty()">-</button> -->
+   <button (click)="addQty()">+</button> <button (click)="minusQty()">-</button>
 </div>
 <div #divPrice>    
   售價: {{price() | currency}}
-   <!-- <button (click)="changePrice()">Change Price</button> -->
+   <button (click)="changePrice()">Change Price</button>
 </div>
 <div>
   合計: {{total() |currency}} 
