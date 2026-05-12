@@ -53,4 +53,8 @@ export class Content2Component {
     console.log(`滑鼠進來了`);
   }  
 
+    mymouseleave(event: any) {
+    console.log(`滑鼠離開了`);
+  }  
+
 }

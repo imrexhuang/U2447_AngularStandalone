@@ -9,11 +9,11 @@
     <circle cx="75" cy="75" r="10" fill="black" />
 </svg>
 
-<div style="border: 2px solid gray; width: 200px; height: 100px;">
+<div style="border: 2px solid gray; width: 200px; height: 100px;" (mouseenter)="mymouseenter($event)" (mouseleave)="mymouseleave($event)">
     {{eventValue}}
 </div>
 
 
-<div (click)="GoHome($event)"　(mouseenter)="mymouseenter($event)"　>
+<div (click)="GoHome($event)"　　>
     <a (click)="GoHome($event)" (click)="myonclick($event)" href="home">回到 Home</a>
 </div>
