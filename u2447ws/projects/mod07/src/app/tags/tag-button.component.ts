@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, input, output,  } from '@angular/core';
 
 @Component({
   selector: 'tagButton',
@@ -18,9 +18,14 @@ import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angul
   styles: ``
 })
 export class TagButtonComponent {
-  @Input ({required:true, alias:'tag'}) tagName:string ="";
-  @Input ({transform:booleanAttribute}) canDelete: boolean=false;
-  @Output() delete = new EventEmitter<string>();
+  //@Input ({required:true, alias:'tag'}) tagName:string ="";
+  //@Input ({transform:booleanAttribute}) canDelete: boolean=false;
+  //@Output() delete = new EventEmitter<string>();
+
+  tagName = input.required<string>({alias:'tag'});
+  canDelete = input <boolean, boolean>(false, {transform:booleanAttribute})
+  delete =output<string>();
+
   onDelete(){
     this.delete.emit(this.tagName);
   }
