@@ -1,1 +1,10 @@
-<p>content3 works!</p>
+ 選課: {{choice}}
+    <!-- <select [ngModel]='choice' (ngModelChange)='choice=$event'> -->
+        <!--兩種寫法效果一樣 -->
+
+<select [(ngModel)]='choice' >     
+      <option >Select a course</option>
+     @for (item of courses; track $index) {
+      <option value="{{item.id}}">{{item.name}}</option>
+    }
+</select> 
