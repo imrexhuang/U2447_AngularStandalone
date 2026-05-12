@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'uuu-home',
@@ -22,6 +22,28 @@ export class HomeComponent {
   }
   minusQty() {
     this.qty.update((v) => v - 1);
+  }
+
+
+  constructor(){
+
+    //price和qty同時一起通知
+    // effect(()=> 
+    // {
+    //   console.log("price", this.price());
+    //   console.log("qty", this.qty());
+    // });
+
+
+    //price和qty分開個別通知
+    effect(() => {
+      console.log('price', this.price());
+    });
+
+    effect(() => {
+      console.log('qty', this.qty());
+    });
+
   }
 
 }
