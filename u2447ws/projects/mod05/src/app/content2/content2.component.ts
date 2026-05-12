@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 export class Content2Component {
   eventValue:string="";
   oninput(event: Event) {
-    const input = event.target as HTMLInputElement
+    const input = event.target as HTMLInputElement //轉型
     this.eventValue = `你輸入: ${input.value}`;    
   }
   onmousemove(event: any) {
