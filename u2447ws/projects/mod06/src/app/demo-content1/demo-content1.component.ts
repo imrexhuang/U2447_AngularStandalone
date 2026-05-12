@@ -1,10 +1,10 @@
-import { Component, ContentChild, ElementRef, ViewChild  } from '@angular/core';
+import { Component, ContentChild, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo-content1',
   imports: [],
   template: `
-<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: lightgray; border: 2px solid gray; padding: 20px;"> 
+<div #box style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: lightgray; border: 2px solid gray; padding: 20px;"> 
       <h2>Demo Content 1</h2>
       <hr/>
       <div>
@@ -32,12 +32,12 @@ export class DemoContent1Component {
   }
   ngAfterContentInit(){
     console.log('ngAfterContentInit', this.antherTips);
-    this.antherTips.nativeElement.addEventListener('mousemove', () => {
+    this.antherTips?.nativeElement.addEventListener('mousemove', () => {
       this.antherTips.nativeElement.style.backgroundColor = 'yellow';
 
     });
 
-    this.antherTips.nativeElement.addEventListener('mouseleave', () => {     
+    this.antherTips?.nativeElement.addEventListener('mouseleave', () => {     
       this.antherTips.nativeElement.style.backgroundColor = '';
     });
 
