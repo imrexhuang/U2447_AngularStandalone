@@ -13,6 +13,7 @@ export class Content2Component {
     const input = event.target as HTMLInputElement //轉型
     this.eventValue = `你輸入: ${input.value}`;    
   }
+
   onmousemove(event: any) {
     this.eventValue=`    
       現在位置 x:${event.offsetX} y:${ event.offsetY} 
@@ -32,5 +33,9 @@ export class Content2Component {
   myonclick(event: any) {
     console.log(`myonclick()你點擊了 ${event.target.tagName} 元素`);
   }
+
+  mymouseenter(event: any) {
+    console.log(`滑鼠進來了`);
+  }  
 
 }
