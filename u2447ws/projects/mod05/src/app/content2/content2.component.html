@@ -1,1 +1,14 @@
-<p>content2 works!</p>
+
+<p>事件處理</p>
+<input type="text" (input)="oninput($event)" /><br />
+<svg width="150" height="150" style="border: 1px solid" 
+    (mousemove)="onmousemove($event)">
+    <circle cx="75" cy="75" r="50" fill="red" />
+    <circle cx="75" cy="75" r="40" fill="blue" />
+    <circle cx="75" cy="75" r="30" fill="green" />
+    <circle cx="75" cy="75" r="10" fill="black" />
+</svg>
+
+<div style="border: 2px solid gray; width: 200px; height: 100px;">
+    {{eventValue}}
+</div>
