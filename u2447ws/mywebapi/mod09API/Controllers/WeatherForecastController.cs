@@ -57,4 +57,11 @@ public class WeatherForecastController : ControllerBase
         return d.ToString();
     }
 
+     [HttpPost]
+    public ActionResult<string> Post([FromBody] WeatherForecast wf)
+    {
+        return $"Received weather forecast for {wf.Date}: {wf.Summary} with temperature {wf.TemperatureC}°C";
+    }
+       
+
 }
