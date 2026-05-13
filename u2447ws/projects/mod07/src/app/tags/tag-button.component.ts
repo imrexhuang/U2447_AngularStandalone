@@ -24,7 +24,7 @@ import { booleanAttribute, Component, EventEmitter, input, output,  } from '@ang
 export class TagButtonComponent {
   //@Input ({required:true, alias:'tag'}) tagName:string ="";
   //@Input ({transform:booleanAttribute}) canDelete: boolean=false;
-  //@Output() delete = new EventEmitter<string>();
+  //@Output() delete = new EventEmitter<string>(); //元件的雙向綁定,課本第6-4頁
 
   tagName = input.required<string>({alias:'tag'});
   canDelete = input <boolean, boolean>(false, {transform:booleanAttribute})
