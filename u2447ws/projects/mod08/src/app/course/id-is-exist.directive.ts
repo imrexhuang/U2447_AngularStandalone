@@ -12,6 +12,7 @@ import { courses } from '../model/coursedb';
 })
 export class IdIsExistDirective implements Validator {
 
+  //transform: booleanAttribute => 轉型
   @Input({alias: "IdIsExist", transform: booleanAttribute}) isNew: boolean = false;
   constructor() { }
 
