@@ -1,0 +1,4 @@
+執行專案
+ng s mod07
+再按小寫o開新瀏覽器
+Chrome按F12看Console log
