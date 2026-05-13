@@ -28,10 +28,11 @@ export class TagListComponent {
   
   //@Input({transform: booleanAttribute}) readOnly:boolean=false;  
   //@Input('List') tags: string[] = [];
-  //@Output('ListChange') tagsChange =new EventEmitter<string[]>();
+  //@Output('ListChange') tagsChange =new EventEmitter<string[]>(); //元件的雙向綁定,課本第6-4頁
   // 因為要雙向綁定,改成model語法
   readOnly= input<boolean, boolean>(false, {transform: booleanAttribute});
-  tags = model<string[]>([],{alias:"List"});
+  tags = model<string[]>([],{alias:"List"}); //可用ModelSignal取代元件的@INPUT @OUTPUT EventEmitter雙向綁定,課本第6-4頁
+  // https://ithelp.ithome.com.tw/m/articles/10346166
 
   deleteTag(tagName: string){
     //this.tags = this.tags.filter(tag => tag !== tagName);
