@@ -41,6 +41,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet("{year}/{month}/{day}")]
+    //public string Get(int year, int month, int day) //會有無法轉型的錯誤
     public ActionResult<string> Get(int year, int month, int day)
     {
         DateOnly d;
