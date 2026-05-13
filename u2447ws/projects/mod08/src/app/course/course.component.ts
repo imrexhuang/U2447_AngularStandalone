@@ -4,10 +4,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Course } from '../model/course';
 import { courses, locations } from '../model/coursedb';
 import { IdIsExistDirective } from './id-is-exist.directive';
+import { CheckEndDateDirective } from './check-end-date.directive';
+
 
 @Component({
   selector: 'app-course',
-  imports: [FormsModule, JsonPipe, DatePipe, IdIsExistDirective],
+  imports: [FormsModule, JsonPipe, DatePipe, IdIsExistDirective, CheckEndDateDirective],
   templateUrl: './course.component.html',
   styles: ``
 })

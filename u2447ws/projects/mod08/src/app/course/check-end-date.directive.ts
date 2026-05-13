@@ -10,7 +10,8 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
     multi: true
   }]
 })
-class CheckEndDateDirective implements Validator {
+
+export class CheckEndDateDirective implements Validator {
   @Input('CheckEndDate') dateCtlsName: string[] = [];
   constructor() { }
   validate(control: AbstractControl): ValidationErrors | null {
