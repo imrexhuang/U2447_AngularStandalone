@@ -3,19 +3,22 @@ import { Component, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Course } from '../model/course';
 import { courses, locations } from '../model/coursedb';
+import { IdIsExistDirective } from './id-is-exist.directive';
 
 @Component({
   selector: 'app-course',
-  imports: [FormsModule, JsonPipe, DatePipe],
+  imports: [FormsModule, JsonPipe, DatePipe, IdIsExistDirective],
   templateUrl: './course.component.html',
   styles: ``
 })
 export class CourseComponent {
+  isNew: Boolean = false;
   course = signal<Course>(courses[0]);
   locations = locations;
   submitted: Boolean = false;
   onSubmit(form: NgForm) {
     if (form.invalid) return;
+    this.isNew = false;
     this.submitted = true;
   }
 
@@ -47,6 +50,7 @@ export class CourseComponent {
 
 
   newCourse() {
+    this.isNew = true;
     this.course = signal<Course>({ courseId: '', courseName: '', hours: 0 });
   };
 
