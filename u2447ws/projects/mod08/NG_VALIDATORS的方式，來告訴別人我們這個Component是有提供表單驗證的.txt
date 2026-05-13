@@ -1,0 +1,4 @@
+https://fullstackladder.dev/blog/2017/09/23/angular-advanced-customize-form-control-with-validation/
+
+使用NG_VALIDATORS
+跟使用NG_VALUE_ACCESSOR一樣，我們也可以透過提供NG_VALIDATORS的方式，來告訴別人我們這個Component是有提供表單驗證的，首先我們先加入一個USER_PROFILE_VALIDATORS
