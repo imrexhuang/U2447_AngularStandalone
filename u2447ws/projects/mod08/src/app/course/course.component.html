@@ -80,6 +80,9 @@
 
     </div>
 
+  <div class="input-group" ngModelGroup="dateRangeCheck" #dateRangeCheck="ngModelGroup"
+    [CheckEndDate]="['startDate', 'endDate']" >
+       
     <div class="mb-3">
         <label for="startDate" class="form-lable">開始日期</label>
         <input type="date" class="form-control" name="startDate" [(ngModel)]="startDate" (ngModelChange)="startDate=$event" #mStartDate="ngModel">
