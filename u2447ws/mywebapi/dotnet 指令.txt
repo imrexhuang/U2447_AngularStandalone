@@ -1,0 +1,5 @@
+dotnet new webapi -minimal=false -o mod09API
+cd mod09API
+dotnet watch run
+
+http://localhost:5046/WeatherForecast
