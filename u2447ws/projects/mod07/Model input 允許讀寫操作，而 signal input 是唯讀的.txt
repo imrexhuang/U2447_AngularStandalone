@@ -1,0 +1,19 @@
+Day 16 - 組件與model input之間的溝通
+
+https://ithelp.ithome.com.tw/m/articles/10346166
+
+在現代 Angular 中，組件中的雙向資料綁定 (two-way data binding)，一般經驗法則是採用單向資料流 (unidirectional data flow) 並實作自訂 event emitter 以將變更傳播到父組件。更流行的解決方案是使用 Subject 或BehaviorSubject 在父組件和子組件之間分享資料。透過 Signal API 和 Model input，雙向資料綁定 (Two-way data binding) 的複雜性顯著降低。
+
+我用來在父組件和子組件之間進行通訊的一些模式。
+使用 input 和 event emitter。 input 名為 x，event emitter名為 xChange。
+Subject as a service。 組件使用 Subject 或 BehaviorSubject 來分享資料。
+使用 model input 將資料雙向綁定 (two-way data binding) 到組件層級的 plain value 或 signal。
+今天，我想介紹一下signal 方式的雙向綁定 (two-way data binding)，即在組件中使用 model input。
+
+必需和可選的 Model Input
+model.required() 表示組件有指定輸入值。如果組件找不到輸入值，則會拋出錯誤。
+model() 表示當組件沒有指定輸入值時使用初始值。
+Model input與 Signal input 的區別
+Model input 允許讀寫操作，而 signal input 是唯讀的。
+Model input 沒有 transform 屬性；因此，值不能透過變換函數進行變換。
+Model input 傳回 ModelSignal，而 signal input 傳回 Signal。
