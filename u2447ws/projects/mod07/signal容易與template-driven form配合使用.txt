@@ -1,0 +1,4 @@
+https://ithelp.ithome.com.tw/m/articles/10345166
+
+Angular支援template-drive form和reactive form，但是，signal容易與template-driven form配合使用。在NgModel能夠與signal執行two-way binding之後，我更多地使用template-driven form。
+
