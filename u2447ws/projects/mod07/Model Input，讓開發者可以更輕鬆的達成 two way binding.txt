@@ -1,0 +1,2 @@
+使用 Signal Model Input 輕鬆達成 two way binding
+https://fullstackladder.dev/blog/2024/02/15/angular-two-way-binding-using-signals-model/
