@@ -1,0 +1,4 @@
+https://fullstackladder.dev/blog/2018/10/23/mastering-angular-08-customize-form-control/
+
+昨天我們介紹了一個簡單的方法來實作 two way binding，這種方法在很多情境都非常好用，不過他還是有一些小問題，有些我們會需要在表單中使用自己設計的元件，但若使用 @Input 加上 @Output 的方法，會無法使用到在 Angular 中表單控制項的一些好處，例如加上驗證器的功能，也沒有一些如 ng-dirty 、 ng-invalid 等 CSS class 可用。因此今天我們來聊聊如何自己設計一個表單控制項吧！
+
