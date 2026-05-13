@@ -45,4 +45,9 @@ export class CourseComponent {
     this.course().endDate = new Date(date);
   }
 
+
+  newCourse() {
+    this.course = signal<Course>({ courseId: '', courseName: '', hours: 0 });
+  };
+
 }
