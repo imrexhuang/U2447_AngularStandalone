@@ -20,25 +20,20 @@ export interface Course {
 
 export const courses: Course[] = [
     {
-        courseId: "U2447",
-        courseName: "基礎 TypeScript 開發",
-        hours: 24,
-        startDate: new Date("2024-08-05"),
-        endDate: new Date("2024-08-09"),
-        location: "台北",
-        staffEmail: "tutor1@example.com",
-        description: "介紹 TypeScript 基礎語法與專案開發流程",
-        isActive: true,
+        courseId: "U2447", courseName: "Angular Part1",
+        hours: 28,
+        startDate: new Date("2024-07-09"), endDate: new Date("2024-07-12"),
+        location: "台北", staffEmail: "u2447@uuu.com.tw",
+        description: "這個課程將讓您深入了解Angular框架的基礎知識和應用技巧。一開始，會帶您認識Angular框架，包括如何安裝開發環境和工具，以及探索專案的結構和常用指令集。", 
+        isActive: true
     },
     {
-        courseId: "U2448",
-        courseName: "前端框架實戰",
-        hours: 30,
-        startDate: new Date("2024-10-15"),
-        endDate: new Date("2024-10-19"),
-        location: "新竹",
-        staffEmail: "tutor2@example.com",
-        description: "以實例練習 Vue/React 元件開發與狀態管理",
-        isActive: false,
+        courseId: "U2448", courseName: "Angular Part2",
+        hours: 28,
+        startDate: new Date("2024-07-09"), endDate: new Date("2024-07-12"),
+        location: "台北", staffEmail: "u2448@uuu.com.tw",
+        description: "首先，課程中將探討Angular中的非同步機制，討論Observable和RxJS之間的關係，並比較Promise和async/await，以了解它們在Angular中的運作原理及應用場景。", 
+        isActive: true
     },
-];
+]
+
