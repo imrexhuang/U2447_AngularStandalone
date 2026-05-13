@@ -1,0 +1,4 @@
+https://fullstackladder.dev/blog/2018/10/22/mastering-angular-07-simple-two-way-binding/
+
+在 Angular 中，通常我們會使用 [(ngModel)] 來實現 two way binding，這樣做基本上沒有什麼問題，但 ngModel 只能 binding 在常見的表單控制項上，如 input、select 等，難以自行在元件上時作出 two way binding，雖然還是可以做到，但相對麻煩了一點
+
