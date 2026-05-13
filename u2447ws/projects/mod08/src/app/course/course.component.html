@@ -1,11 +1,65 @@
 @if (!submitted){
     <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)"
         (keydown.enter)="$event.preventDefault()">
+    <div class="mb-3">
+        <input type="checkbox" class="form-check-input" name="isActive" [(ngModel)]="course().isActive">
+        <label for="isActive" class="form-check-lable">是否啟用</label>        
+    </div>
+
         <div class="mb-3">
             <label for="courseId" class="form-lable">課程ID</label>
             <input type="text" class="form-control" name="courseId"
              [(ngModel)]="course().courseId">
         </div>
+        
+        <div class="mb-3">
+            <label for="courseName" class="form-lable">課程名稱</label>
+            <input type="text" class="form-control" name="courseName"
+             [(ngModel)]="course().courseName">
+        </div>
+        
+        <div class="mb-3">
+            <label for="hours" class="form-lable">時數</label>
+            <input type="number" class="form-control" name="hours"
+             [(ngModel)]="course().hours">
+        </div>
+        
+        <div class="mb-3">
+            <label for="startDate" class="form-lable">開始日期</label>
+            <input type="date" class="form-control" name="startDate"
+             [(ngModel)]="course().startDate">
+        </div>
+        
+        <div class="mb-3">
+            <label for="endDate" class="form-lable">結束日期</label>
+            <input type="date" class="form-control" name="endDate"
+             [(ngModel)]="course().endDate">
+        </div>
+        
+        <div class="mb-3">
+            <label for="location" class="form-lable">地點</label>
+        <select class="form-select" name="location" [(ngModel)]="course().location">
+            @for(location of locations; track $index){
+            <option [value]="location">{{ location }}</option>
+            }            
+        </select>  
+
+        </div>
+        
+        <div class="mb-3">
+            <label for="staffEmail" class="form-lable">員工郵箱</label>
+            <input type="email" class="form-control" name="staffEmail"
+             [(ngModel)]="course().staffEmail">
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-lable">描述</label>
+            <textarea class="form-control" name="description"
+             [(ngModel)]="course().description"></textarea>
+        </div>
+        
+
+        
         <button >Submit</button>
     </form>
     <div style="border-bottom:1px solid black;background-color : gainsboro;">
@@ -16,13 +70,48 @@
     </div>
 
 }@else {
-    <div class="table">
-        <div class="row">
-            <div class="col-4">課程ID: </div>
-            <div class="col-6">{{course().courseId}}</div>
-        </div>
-        <div>
-            <button class="btn btn-primary" >編修</button>
-        </div>
+<div class="table">
+    <div class="row">
+        <div class="col-4">開放報名: </div>
+        <div class="col-6"><input type="checkbox" class="form-check-input" name="isActive" disabled
+[(ngModel)]="course().isActive"></div>
     </div>
+    <div class="row">
+        <div class="col-4">課程ID: </div>
+        <div class="col-6">{{course().courseId}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">名稱: </div>
+        <div class="col-6">{{course().courseName}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">時數: </div>
+        <div class="col-6">{{course().hours}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">開始日期: </div>
+        <div class="col-6">{{course().startDate | date:'yyyy-MM-dd'}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">結束日期: </div>
+        <div class="col-6">{{course().endDate | date:'yyyy-MM-dd'}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">地點: </div>
+        <div class="col-6">{{course().location}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">員工郵件: </div>
+        <div class="col-6">{{course().staffEmail}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">說明: </div>
+        <div class="col-6">{{course().description}}</div>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" (click)="submitted=false">編修</button>
+    </div>
+</div>
+
 }
