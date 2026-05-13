@@ -4,9 +4,11 @@
         border-left: 5px solid #42A948;
         /* green */
     }
+
     .ng-dirty:not(form) {
         border: 1px solid blue;
     }
+
     .ng-invalid:not(form) {
         border-left: 5px solid #a94442;
         /* red */
@@ -26,6 +28,17 @@
         <label for="courseId" class="form-lable">課程ID</label>
         <input type="text" class="form-control" name="courseId" required placeholder="例如: U1234 或是 UN789 這樣的格式，字母必須大寫"
             pattern="[UN]{1,2}[0-9]{3,4}" [(ngModel)]="course().courseId" #mCourseId="ngModel">
+        @if(mCourseId.invalid && (mCourseId.dirty || mCourseId.touched)){
+        <div class="alert alert-danger">
+            @if(mCourseId.errors?.['required']) {
+            必填
+            }
+            @if(mCourseId.errors?.['pattern']) {
+            格式錯誤，例如: U1234 或是 UN789 這樣的格式，字母必須大寫
+            }
+        </div>
+        }
+
     </div>
 
     <div class="mb-3">
@@ -36,10 +49,8 @@
 
     <div class="mb-3">
         <label for="hours" class="form-lable">時數</label>
-        <input type="number" class="form-control" name="hours"
-         min="7" max="140" step="7" 
-            placeholder="7的倍數，最少7小時，最多140小時"
-         [(ngModel)]="course().hours" #mHours="ngModel">
+        <input type="number" class="form-control" name="hours" min="7" max="140" step="7"
+            placeholder="7的倍數，最少7小時，最多140小時" [(ngModel)]="course().hours" #mHours="ngModel">
     </div>
 
     <div class="mb-3">
