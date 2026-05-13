@@ -1,0 +1,5 @@
+安裝套件 C# Dev Kit
+https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit
+
+安裝套件 REST Client
+https://marketplace.visualstudio.com/items?itemName=humao.rest-client
