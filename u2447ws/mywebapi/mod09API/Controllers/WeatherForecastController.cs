@@ -29,4 +29,31 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+    [HttpGet("{id}", Name = "GetWeatherForecastById")]
+    public ActionResult<string> GetById(int id)
+    {
+        if (id>= Summaries.Length || id < 0)
+        {
+            return NotFound();
+        }
+        return Summaries[id];
+    }
+
+    [HttpGet("{year}/{month}/{day}")]
+    public ActionResult<string> Get(int year, int month, int day)
+    {
+        DateOnly d;
+        try
+        {
+            //d = new(year, month, day);
+            d = new DateOnly(year, month, day);
+        }
+        catch (Exception e) {
+            Console.WriteLine(e);
+            return BadRequest();
+        }
+        return d.ToString();
+    }
+
 }
