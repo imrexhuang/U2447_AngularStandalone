@@ -27,7 +27,8 @@
     <div class="mb-3">
         <label for="courseId" class="form-lable">課程ID</label>
         <input type="text" class="form-control" name="courseId" required placeholder="例如: U1234 或是 UN789 這樣的格式，字母必須大寫"
-            pattern="[UN]{1,2}[0-9]{3,4}" [(ngModel)]="course().courseId" #mCourseId="ngModel">
+          [IdIsExist]="isNew"  pattern="[UN]{1,2}[0-9]{3,4}" [(ngModel)]="course().courseId" #mCourseId="ngModel" />
+
         @if(mCourseId.invalid && (mCourseId.dirty || mCourseId.touched)){
         <div class="alert alert-danger">
             @if(mCourseId.errors?.['required']) {
@@ -36,21 +37,47 @@
             @if(mCourseId.errors?.['pattern']) {
             格式錯誤，例如: U1234 或是 UN789 這樣的格式，字母必須大寫
             }
+            @if (mCourseId.errors?.['IdIsExist']) {
+              {{ mCourseId.errors?.['IdIsExist'].requiredValue }}
+            }
         </div>
         }
-
     </div>
 
     <div class="mb-3">
         <label for="courseName" class="form-lable">課程名稱</label>
         <input type="text" class="form-control" name="courseName" required minlength="5" maxlength="40"
             placeholder="最少5個字，最多40個字" [(ngModel)]="course().courseName" #mCourseName="ngModel">
+        @if (mCourseName.invalid && (mCourseName.dirty || mCourseName.touched)){
+        <div class="alert alert-danger">
+            @if(mCourseName.errors?.['required']) {
+            必填
+            }
+            @if(mCourseName.errors?.['minlength']) {
+            最少5個字
+            }
+            @if(mCourseName.errors?.['maxlength']) {
+            最多40個字
+            }
+        </div>
+        }
     </div>
 
     <div class="mb-3">
         <label for="hours" class="form-lable">時數</label>
         <input type="number" class="form-control" name="hours" min="7" max="140" step="7"
             placeholder="7的倍數，最少7小時，最多140小時" [(ngModel)]="course().hours" #mHours="ngModel">
+        @if(mHours.invalid && (mHours.dirty || mHours.touched)){
+        <div class="alert alert-danger">
+            @if(mHours.errors?.['min']) {
+            最少7小時
+            }
+            @if(mHours.errors?.['max']) {
+            最多140小時
+            }
+        </div>
+        }
+
     </div>
 
     <div class="mb-3">
@@ -75,7 +102,17 @@
 
     <div class="mb-3">
         <label for="staffEmail" class="form-lable">員工郵箱</label>
-        <input type="email" class="form-control" name="staffEmail" [(ngModel)]="course().staffEmail">
+        <input type="email" class="form-control" name="staffEmail" [(ngModel)]="course().staffEmail"
+            #mStaffEmail="ngModel" placeholder="例如: John.38&#64;email.com"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        @if(mStaffEmail.invalid && (mStaffEmail.dirty || mStaffEmail.touched)){
+        <div class="alert alert-danger">
+            @if(mStaffEmail.errors?.['pattern']) {
+            格式錯誤，例如:John.38&#64;email.com
+            }
+        </div>
+        }
+
     </div>
 
     <div class="mb-3">
