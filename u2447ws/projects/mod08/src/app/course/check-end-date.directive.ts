@@ -14,7 +14,8 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
 export class CheckEndDateDirective implements Validator {
   @Input('CheckEndDate') dateCtlsName: string[] = [];
   constructor() { }
-  validate(control: AbstractControl): ValidationErrors | null {
+  validate(control: AbstractControl<any,any>): ValidationErrors | null {
+  //validate(control: AbstractControl): ValidationErrors | null {
     if (!control.dirty) return null;
     let startCtlName: string = this.dateCtlsName[0],
       endCtlName: string = this.dateCtlsName[1]
