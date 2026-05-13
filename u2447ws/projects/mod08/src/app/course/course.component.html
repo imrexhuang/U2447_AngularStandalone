@@ -82,12 +82,27 @@
 
     <div class="mb-3">
         <label for="startDate" class="form-lable">開始日期</label>
-        <input type="date" class="form-control" name="startDate" [(ngModel)]="startDate" #mStartDate="ngModel">
+        <input type="date" class="form-control" name="startDate" [(ngModel)]="startDate" (ngModelChange)="startDate=$event" #mStartDate="ngModel">
+
     </div>
 
     <div class="mb-3">
         <label for="endDate" class="form-lable">結束日期</label>
-        <input type="date" class="form-control" name="endDate" [(ngModel)]="endDate" #mEndDate="ngModel">
+        <!--input type="date" class="form-control" name="endDate" [(ngModel)]="endDate" #mEndDate="ngModel"-->
+        <input type="date" class="form-control" name="endDate" [min]="mStartDate.value" 
+            [required]="mStartDate.value" [ngModel]="endDate" 
+            (ngModelChange)="endDate=$event" #mEndDate="ngModel">
+        @if (dateRangeCheck.invalid && (dateRangeCheck.dirty || dateRangeCheck.touched)){
+            <div class="mb-3 alert alert-danger">
+             @if (mEndDate.errors?.['required']) {
+                   結束日期必填
+                }
+              @if(dateRangeCheck.errors?.['CheckEndDate']) {               
+               {{ dateRangeCheck.errors?.['CheckEndDate'].requiredValue }}
+                }
+            </div>
+    
+            }            
     </div>
 
     <div class="mb-3">
