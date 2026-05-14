@@ -1,13 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { MeetingRoom } from './meeting-room';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MeetingRoomService {
 
-  rootUrl = 'http://localhost:5046/MeetingRooms';
+  //rootUrl = 'http://localhost:5046/MeetingRooms';
+  //改從環境變數檔取得URL
+  rootUrl='';
+  constructor() { 
+    this.rootUrl=environment.apiUrl;
+  }
+
+
   public formData = new MeetingRoom();
   public list = signal<MeetingRoom[]>([]);
   public recordCount=computed(()=>this.list().length);
