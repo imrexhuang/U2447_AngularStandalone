@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { WeatherForecast } from './weather-forecast';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class ConnToWebAPIService {
     return  this.http.get(`${this.rootUrl}/${id}`,{responseType:'text'});
   
   }
-    
+
+  GetWeatherForecast () {
+    return this.http.get<WeatherForecast[]>(`${this.rootUrl}`);
+  }  
+
 }

@@ -1,5 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ConnToWebAPIService } from './conn-to-web-api.service';
+import { WeatherForecast } from './weather-forecast';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-part2',
@@ -29,5 +32,13 @@ export class Part2Component {
       } );
     }
 
-    
+    //補充教材 p.81 , LAB03
+    wfList: WeatherForecast[] = [];
+  	GetWeatherForecast() {
+    	this.connToAPI.GetWeatherForecast().subscribe({
+      next: resp => this.wfList = resp,
+      error: error => console.log(error)
+    	});
+  }    
+
 }
