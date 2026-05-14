@@ -29,4 +29,16 @@ export class MeetingRoomService {
       });
   }
 
+  postMeetingRoom() {
+    return this.http.post(this.rootUrl, this.formData);
+  }
+
+  putMeetingRoom() {
+    return this.http.put(this.rootUrl + '/' + this.formData.id, this.formData);
+  }
+
+ deleteMeetingRoom(id: number) {
+    return this.http.delete(this.rootUrl + '/' + id);
+  }
+    
 }

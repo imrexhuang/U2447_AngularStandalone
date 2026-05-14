@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MeetingRoom } from '../shared/meeting-room';
 import { MeetingRoomService } from '../shared/meeting-room.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-meeting-room-detail',
@@ -25,6 +26,37 @@ export class MeetingRoomDetailComponent {
     if (form != null)
       form.form.reset();
     this.service.formData = new MeetingRoom();
+
+
+  }
+
+
+  updateRecord(form: NgForm): Observable<any> {
+    return this.service.putMeetingRoom();
+  }
+
+  insertRecord(form: NgForm): Observable<any> {
+    return this.service.postMeetingRoom();
+  }
+
+
+  onSubmit(form: NgForm) {
+    let result: Observable<any>;
+    if (this.service.formData.id == 0)
+      result = this.insertRecord(form);
+    else
+      result = this.updateRecord(form);
+
+    result.subscribe(
+      {
+        next: resp => {
+          this.resetForm(form);
+          this.service.getList();
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
   }
 
 }
