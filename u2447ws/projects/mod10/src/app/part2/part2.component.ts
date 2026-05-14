@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConnToWebAPIService } from './conn-to-web-api.service';
 
 @Component({
   selector: 'app-part2',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class Part2Component {
+  connToAPI = inject(ConnToWebAPIService); //inject
+  summary:string="";
 
+  GetSummary(id:string){
+    this.connToAPI.GetSummary(Number(id));
+  }
 }
