@@ -20,3 +20,31 @@ Content-Type: application/json
 
 ###
 GET {{mod09API_HostAddress}}/api/MeetingRooms
+
+###
+GET {{mod09API_HostAddress}}/api/MeetingRooms/1
+
+###
+POST {{mod09API_HostAddress}}/api/MeetingRooms
+Content-Type: application/json
+
+{  
+  "name": "台北101",
+  "size": 100,
+  "projector": true,
+  "tv": true
+}
+
+###
+PUT {{mod09API_HostAddress}}/api/MeetingRooms/6
+Content-Type: application/json
+
+{  
+  "id": 6,  "name": "台北101",
+  "size": 200,
+  "projector": true,
+  "tv": true
+}
+
+###
+DELETE {{mod09API_HostAddress}}/api/MeetingRooms/6

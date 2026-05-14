@@ -1,0 +1,5 @@
+
+WebAPI測試:
+用.http檔(REST Client)
+或是swagger
+http://localhost:5046/swagger/index.html
