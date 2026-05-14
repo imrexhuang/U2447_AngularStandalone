@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-part2',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './part2.component.html',
   styles: ``
 })
@@ -41,4 +41,5 @@ export class Part2Component {
     	});
   }    
 
+  
 }

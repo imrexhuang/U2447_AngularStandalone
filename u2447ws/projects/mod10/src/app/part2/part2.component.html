@@ -20,8 +20,7 @@
         </div>
         @for (item of wfList; track $index) {
         <div class="row border">
-            <!--div class="col">{{item.date | date: 'yyyy/MM/dd'}}</div-->
-            <div class="col">{{item.date }}</div>
+            <div class="col">{{item.date | date: 'yyyy/MM/dd'}}</div>
             <div class="col">{{item.temperatureC}}</div>
             <div class="col">{{item.temperatureF}}</div>
             <div class="col">{{item.summary}}</div>
@@ -30,5 +29,7 @@
     </div>
     }
 </div>
+
+
 
 
