@@ -16,3 +16,7 @@ Content-Type: application/json
   "temperatureC": 25,
   "summary": "Warm"
 }
+
+
+###
+GET {{mod09API_HostAddress}}/api/MeetingRooms
