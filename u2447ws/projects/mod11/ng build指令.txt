@@ -1,0 +1,10 @@
+
+建置專案
+LAB 02 (補充教材 P.101)
+ng build mod11 --base-href /MyPortal/
+
+
+
+環境變數檔
+LAB 02 (補充教材 P.100)
+ng g environments --project mod11
