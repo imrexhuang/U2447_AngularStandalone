@@ -5,7 +5,6 @@ import { MeetingRoomService } from '../shared/meeting-room.service';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-meeting-room-detail',
   imports: [FormsModule],
@@ -22,19 +21,16 @@ export class MeetingRoomDetailComponent {
     { value: 50, text: "50人" }, { value: 100, text: "100人" },
     { value: 200, text: "200人" }];
 
-  toastr = inject(ToastrService); //npm install ngx-toastr@19
-
+  toastr = inject(ToastrService);
   ngOnInit() {
-    this.resetForm();
-
-    //ngx-toastr
-    this.toastr.show("show", "Title");
-    this.toastr.success("success", "Title");
-    this.toastr.info("info", "Title");
-    this.toastr.warning("warning", "Title");
-    this.toastr.error("error", "Title");    
+    // this.resetForm();
+    // this.toastr.show("show", "Title");
+    // this.toastr.success("success", "Title");
+    // this.toastr.info("info", "Title");
+    // this.toastr.warning("warning", "Title");
+    // this.toastr.error("error", "Title");
   }
-  
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
@@ -55,15 +51,24 @@ export class MeetingRoomDetailComponent {
 
   onSubmit(form: NgForm) {
     let result: Observable<any>;
-    if (this.service.formData.id == 0)
+    let message: string;
+  if (this.service.formData.id == 0)
+    {
       result = this.insertRecord(form);
+      message='新增成功';
+    }
     else
+    {
       result = this.updateRecord(form);
+      message='更新成功';
+    }
+
 
     result.subscribe(
       {
         next: resp => {
           this.resetForm(form);
+          this.toastr.success(message, "儲存");
           this.service.getList();
         },
         error: err => {
