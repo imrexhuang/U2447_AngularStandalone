@@ -9,12 +9,19 @@ export class ConnToWebAPIService {
   rootUrl="http://localhost:5046/wf";
   constructor() { }
 
+  // GetSummary(id:number){
+
+  //   //使用HttpClient連到目的端
+  //   this.http.get(`${this.rootUrl}/${id}`,{responseType:'text'})
+  //     .subscribe( (data)=>{
+  //       console.log(data);
+  //     });
+  // }
+
   GetSummary(id:number){
 
-    //使用HttpClient連到目的端
-    this.http.get(`${this.rootUrl}/${id}`,{responseType:'text'})
-      .subscribe( (data)=>{
-        console.log(data);
-      });
+    return  this.http.get(`${this.rootUrl}/${id}`,{responseType:'text'});
+  
   }
+    
 }

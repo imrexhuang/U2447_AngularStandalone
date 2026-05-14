@@ -11,7 +11,23 @@ export class Part2Component {
   connToAPI = inject(ConnToWebAPIService); //inject
   summary:string="";
 
-  GetSummary(id:string){
-    this.connToAPI.GetSummary(Number(id));
-  }
+    GetSummary(id:string){
+      if (!Number(id)){
+        alert("請輸入數字");
+        return;
+      }
+      // this.connToAPI.GetSummary(Number(id)).subscribe((data)=>{
+      //   this.summary=data;
+      // });
+      this.connToAPI.GetSummary(Number(id)).subscribe({
+        next:(data)=>{
+          this.summary=data;
+        },
+        error:(err)=>{
+          this.summary="發生錯誤:"+err.message;
+        }
+      } );
+    }
+
+    
 }
