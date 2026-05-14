@@ -29,4 +29,15 @@ export class ConnToWebAPIService {
     return this.http.get<WeatherForecast[]>(`${this.rootUrl}`);
   }  
 
+  GetYMDBody(y: number, m: number, d: number) {
+    return this.http.get(`${this.rootUrl}/${y}/${m}/${d}`,
+      { observe: 'body', responseType: 'text' }
+    );
+  }
+  GetYMDResp(y:number, m:number, d:number) {
+    return this.http.get(`${this.rootUrl}/${y}/${m}/${d}`, 
+      {observe:'response', responseType: 'text'  }
+    );
+  }
+    
 }

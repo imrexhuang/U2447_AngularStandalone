@@ -41,5 +41,20 @@ export class Part2Component {
     	});
   }    
 
+  bodyResult: string = "";
+  GetYMDBody() {
+    this.connToAPI.GetYMDBody(2024, 3, 1).subscribe({
+      next: resp => this.bodyResult = JSON.stringify(resp),
+      error: error => this.bodyResult = `error:${error.message}`
+    });
+  }
+  respResult:string=""; 
+  GetYMDResp(){
+    this.connToAPI.GetYMDResp(2024, 3, 1).subscribe({
+      next: resp => this.respResult = JSON.stringify(resp),
+      error: error => console.log(error)
+    });
+  }
+  
   
 }
