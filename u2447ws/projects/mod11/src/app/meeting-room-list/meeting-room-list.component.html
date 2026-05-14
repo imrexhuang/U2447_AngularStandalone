@@ -1,1 +1,22 @@
-<p>meeting-room-list works!</p>
+<table class="table table-hover">
+<thead><tr>
+<th>#ID</th><th>名稱</th><th>容納人數</th><th>提供設備</th>
+<th></th>
+</tr></thead>
+    <tbody>
+        @for (mr of service.list(); track $index) {
+        <tr>
+            <td>{{mr.id}}</td>
+            <td>{{mr.name}}</td>
+            <td>{{mr.size}}</td>
+            <td>
+                {{mr.projector? '投影機 / ': ''}} {{mr.tv? '電視': ''}}
+            </td>
+            <td> </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="border text-center" >
+    共有 {{this.service.recordCount()}} 筆資料 , {{this.service.totalSize()}} 人座位    
+</div>

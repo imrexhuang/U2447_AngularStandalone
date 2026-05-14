@@ -1,1 +1,31 @@
-<p>meeting-room-detail works!</p>
+<form #form="ngForm" autocomplete="off">
+    <div class="input-group mb-3">
+        
+        <input name="name" class="form-control" placeholder="會議室名稱" required >
+    </div>
+    <div class="input-group mb-3">
+       
+        <select name="size" class="form-control" required >
+            <option value="0">--- 請選擇會議室容納人次 ---</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+       
+        <label class="form-control">
+            <input type="checkbox" aria-label="Checkbox for following text input" name="projector">
+            投影機
+        </label>
+    </div>
+    <div class="input-group mb-3">
+       
+        <label class="form-control">
+            <input type="checkbox" aria-label="Checkbox for following text input" name="tv" >
+            電視
+        </label>
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+            Submit
+        </button>
+    </div>
+</form>
