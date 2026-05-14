@@ -5,7 +5,7 @@
 </tr></thead>
     <tbody>
         @for (mr of service.list(); track $index) {
-        <tr>
+        <tr  (click)="populateForm(mr)">
             <td>{{mr.id}}</td>
             <td>{{mr.name}}</td>
             <td>{{mr.size}}</td>

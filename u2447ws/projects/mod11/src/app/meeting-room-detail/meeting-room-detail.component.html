@@ -1,1 +1,47 @@
-<p>meeting-room-detail works!</p>
+<form #form="ngForm"  >
+    <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-people-roof "></i>
+        </span>
+        <input name="name" class="form-control" #name="ngModel" 
+        [(ngModel)]="service.formData.name" placeholder="會議室名稱"
+            required>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">            
+        <i class=" fa-solid fa-users"></i>
+        </span>
+        <select name="size" class="form-select" required #size="ngModel" [(ngModel)]="service.formData.size">
+            <option [ngValue]="0">--- 請選擇會議室容納人次 ---</option>
+            @for (cap of this.capacity; track $index) {
+            <option [ngValue]="cap.value">
+                {{cap.text}}</option>
+            }
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-video"></i>
+        </span>
+        <label class="form-control">
+            <input type="checkbox" aria-label="Checkbox for following text input" name="projector" #projector="ngModel"
+                [(ngModel)]="service.formData.projector">
+            投影機
+        </label>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-tv"></i>
+        </span>
+        <label class="form-control">
+            <input type="checkbox" aria-label="Checkbox for following text input" name="tv" #tv="ngModel"
+                [(ngModel)]="service.formData.tv">
+            電視
+        </label>
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+            <i class="fa-solid fa-database"></i> Submit
+        </button>
+    </div>
+</form>
