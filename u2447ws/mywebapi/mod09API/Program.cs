@@ -15,6 +15,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MeetingRoomContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MeetingDB")));
 
+//CORS (課本 P.10-8)
+var AllowMyFrontEnd = "AllowMyFrontEnd";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowMyFrontEnd,
+        policy =>
+        {
+         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader(); 
+        });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +46,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowMyFrontEnd); //CORS (課本 P.10-8)
 
 app.UseAuthorization();
 
