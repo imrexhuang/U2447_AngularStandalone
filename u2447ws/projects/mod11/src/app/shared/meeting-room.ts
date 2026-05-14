@@ -1,7 +1,7 @@
 export class MeetingRoom {
-    id!: number;
+    id: number=0;
     name!: string;
     size!: number;
     projector?: boolean;
-    tv?: boolean;    
+    tv?: boolean;
 }
