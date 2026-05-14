@@ -29,11 +29,10 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
-
     [HttpGet("{id}", Name = "GetWeatherForecastById")]
     public ActionResult<string> GetById(int id)
     {
-        if (id>= Summaries.Length || id < 0)
+        if (id >= Summaries.Length || id < 0)
         {
             return NotFound();
         }
@@ -41,22 +40,20 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet("{year}/{month}/{day}")]
-    //public string Get(int year, int month, int day) //會有無法轉型的錯誤
     public ActionResult<string> Get(int year, int month, int day)
     {
         DateOnly d;
         try
         {
-            //d = new(year, month, day);
-            d = new DateOnly(year, month, day);
+            d = new(year, month, day);
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             Console.WriteLine(e);
             return BadRequest();
         }
         return d.ToString();
     }
-
     [HttpPost]
     public ActionResult<string> Post([FromBody] WeatherForecast wf)
     {
@@ -65,6 +62,5 @@ public class WeatherForecastController : ControllerBase
         return result;
 
     }
-
 
 }

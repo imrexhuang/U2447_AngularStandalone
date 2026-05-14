@@ -9,7 +9,7 @@ using mod09API.Models;
 
 namespace mod09API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MeetingRoomsController : ControllerBase
     {
