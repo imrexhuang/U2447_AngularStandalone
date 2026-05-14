@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class Service1Service {
 
-  constructor() { }
+  public a : string;
+
+  constructor() {
+    this.a = '注入練習Service1';
+   }
 }
